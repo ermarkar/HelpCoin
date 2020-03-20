@@ -29,23 +29,3 @@ module.exports = {
         })
     }
 }
-
-// String.prototype.replaceAll = function(search, replacement) {
-//     var target = this;
-//     return target.replace(new RegExp(search, 'g'), replacement);
-// };
-// var json = {name:"s'%d",class:"sda"};
-
-// execute("getName",[json.name,json.class])
-
-// function makeQuery(procedureName,parameters) {
-// 	var query = "call " + procedureName + "(";
-
-//   for(var i=0;i<parameters.length;i++) {
-//   	var param =  parameters[i].replaceAll("'","\\'");
-//     query += "'" + param.replaceAll("%","\\%");
-//     query += "',"
-//   }
-//   query += ")";
-//   return query;
-// }

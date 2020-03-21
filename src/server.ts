@@ -2,6 +2,7 @@ import { Giuseppe } from "giuseppe";
 import { GiuseppeReqResPlugin } from "giuseppe-reqres-plugin";
 
 import * as bodyparser from "body-parser";
+import express = require("express");
 import nodeEnvFile = require("node-env-file");
 import cookieParser = require("cookie-parser");
 
@@ -15,9 +16,13 @@ export class Server {
         nodeEnvFile("./.env");
 
         const giusi = new Giuseppe();
-        giusi.expressApp.use(bodyparser.json());
-        giusi.expressApp.use(bodyparser.urlencoded({ extended: true }));
-        giusi.expressApp.use(cookieParser());
+        const expressApp = giusi.expressApp;
+        expressApp.use(bodyparser.json());
+        expressApp.use(bodyparser.urlencoded({ extended: true }));
+        expressApp.use(cookieParser());
+
+        // static files
+        expressApp.use(express.static("public/web"));
 
         giusi.registerPlugin(new GiuseppeReqResPlugin());
 

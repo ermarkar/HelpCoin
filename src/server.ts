@@ -22,12 +22,12 @@ export class Server {
         expressApp.use(cookieParser());
 
         // static files
-        expressApp.use(express.static("public/web"));
+        expressApp.use(express.static("public"));
 
         giusi.registerPlugin(new GiuseppeReqResPlugin());
 
         console.log(`Loading controllers from folder:  ${process.env.API_FOLDER}`);
-        giusi.loadControllers(`${process.env.API_FOLDER}/**/*.js`)
+        giusi.loadControllers(`./dist/${process.env.API_FOLDER}/**/*.js`)
             .then(() => {
                 giusi.start(+process.env.SERVER_PORT, "/api/v1/");
                 console.log(`Server is up and running on port ${process.env.SERVER_PORT}.`);

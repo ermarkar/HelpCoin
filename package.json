@@ -2,7 +2,7 @@
   "name": "helpcoin",
   "version": "1.0.0",
   "description": "HelpCoin APIs",
-  "main": "dist/server.js",
+  "main": "./dist/server.js",
   "scripts": {
     "clean": "del-cli ./dist/*",
     "prestart": "yarn clean && tsc && yarn copyfiles",

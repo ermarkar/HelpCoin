@@ -6,8 +6,7 @@ export class NgoService {
 
     @Get("getNgos")
     async getNgos(): Promise<any> {
-        console.log("Hi");
-        return await NgoFacade.getNgos();
+        return NgoFacade.getNgos();
     }
 }
 

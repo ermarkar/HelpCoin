@@ -10,8 +10,8 @@ export class HelplineService {
         return HelplineFacade.getHelplineNumbers();
     }
 
-    @Post("addEditNgo")
-    async addEditNgo(@Body() data: HelplineNumber): Promise<any> {
+    @Post("addEditHelplineNumber")
+    async addEditHelplineNumber(@Body() data: HelplineNumber): Promise<any> {
         return HelplineFacade.addEditHelplineNumber(data);
     }
 }

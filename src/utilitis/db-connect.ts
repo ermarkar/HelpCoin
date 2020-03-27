@@ -22,8 +22,10 @@ const pool = new Pool(config);
 
 export class DB {
     static async query(queryInfo: Query): Promise<any> {
-        const _arguments = `('${JSON.stringify(queryInfo.arguments)}'::json)`;
-        console.log("DB -> _arguments", _arguments);
+        let _arguments = "()";
+        if (queryInfo.arguments) {
+            _arguments = `('${JSON.stringify(queryInfo.arguments)}'::json)`;
+        }
         const query = `select * from ${queryInfo.name} ${_arguments} as info;`;
         console.log(query);
         return pool.query(query)

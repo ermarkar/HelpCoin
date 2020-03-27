@@ -5,6 +5,8 @@ import * as bodyparser from "body-parser";
 import express = require("express");
 import nodeEnvFile = require("node-env-file");
 import cookieParser = require("cookie-parser");
+import cors = require("cors");
+import timeout = require('connect-timeout');
 
 /**
  * Launch HTTP Server apis.
@@ -23,6 +25,8 @@ export class Server {
 
         // static files
         expressApp.use(express.static("public"));
+        expressApp.use(timeout("120000"));
+        expressApp.use(cors());
 
         giusi.registerPlugin(new GiuseppeReqResPlugin());
 

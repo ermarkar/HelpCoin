@@ -28,6 +28,21 @@ export class Server {
         expressApp.use(timeout("120000"));
         expressApp.use(cors());
 
+        /* Middleware wrapper to filter specific URL path */
+        const unless = function (path, middleware) {
+            return function (req, res, next) {
+                if (req.path.startsWith(path)) {
+                    return next();
+                } else {
+                    return middleware(req, res, next);
+                }
+            };
+        };
+
+        giusi.expressApp.use(unless("/api/v1", (req, res) => {
+            res.sendFile(process.cwd() + "/public/index.html");
+        }));
+
         giusi.registerPlugin(new GiuseppeReqResPlugin());
 
         console.log(`Loading controllers from folder:  ${process.env.API_FOLDER}`);

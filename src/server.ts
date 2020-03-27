@@ -40,6 +40,7 @@ export class Server {
         };
 
         giusi.expressApp.use(unless("/api/v1", (req, res) => {
+            console.log("Path : ", req.path);
             res.sendFile(process.cwd() + "/public/index.html");
         }));
 

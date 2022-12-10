@@ -28,7 +28,7 @@
     "copyfiles": "^2.2.0",
     "cors": "^2.8.5",
     "del-cli": "^3.0.0",
-    "express": "^4.13.4",
+    "express": "^4.17.3",
     "giuseppe": "^3.1.0",
     "giuseppe-reqres-plugin": "^2.0.0",
     "http": "0.0.0",
